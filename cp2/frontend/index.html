@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblior</title>
+    <script src="https://kit.fontawesome.com/75e13868b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- Navigation section -->
+        <div class="nav-container">
+            <header>
+                <h2>Biblior</h2>
+                <nav>
+                    <ul class="nav-items">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Languages</a></li>
+                        <!-- <li><a href="#">About</a></li> -->
+                    </ul>
+                </nav>
+                <button id="modal-btn">Sign In</button>
+            </header>
+        </div>
+
+        <!-- Signin/Signup form - Modal section -->
+        <div class="modal" id="modal">
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <form action="#" id="sign-up-container">
+                        <h1>Create Account</h1>
+                        <div class="social-container">
+                            <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="social" onclick="googleSignIn()"><i class="fab fa-google"></i></a>
+                            <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
+                        </div>
+                        <span>or use your email for registration</span>
+                        <input id="txtNameSU" type="text" placeholder="Name" required>
+                        <input id="txtEmailSU" type="email" placeholder="Email" required>
+                        <input id="txtPasswordSU" type="password" placeholder="Password" required>
+                        <button id="btnSignup">Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#" id="sign-in-container">
+                        <h1>Sign in</h1>
+                        <div class="social-container">
+                            <!-- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="social" id="googleSI" onclick="googleSignIn()"><i class="fab fa-google"></i></a>
+                            <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
+                        </div>
+                        <span>or use your account</span>
+                        <input id="txtEmailSI" type="email" placeholder="Email" required>
+                        <input id="txtPasswordSI" type="password" placeholder="Password" required>
+                        <a href="#">Forgot your password?</a>
+                        <button id="btnSignin">Sign In</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</p>
+                            <button class="ghost" id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home section -->
+        <div class="home">
+            <div>
+                <p>Translate words, phrases, sentences, documents or even books freely over top 10 spoken languages in the world. Search for already translated books here.
+                </p>
+                <input type="text" class="search" placeholder="Search Books">
+            </div>
+            <img src="{% static './img/hero.svg' %}" alt="hero">
+        </div>
+
+        <!-- Service section -->
+        <div class="services">
+            <!-- <div class="toogle"> -->
+                <p class="label" >Translate Paragraph</p>
+                <!-- <button class="btnpdf btn" >Translate PDF</button> -->
+            <!-- </div> -->
+            <form class="service-container content-1 active" id="content-1">
+                <div class="dropdown">
+                    <div class="input">
+                        <label for="inputlang" class="in">Input language : </label>
+                        <select name="inputlang" id="inputlang">
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="output">
+                        <label for="outputlang" class="out">Output language : </label>
+                        <select name="outputlang" id="outputlang">
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <textarea rows="12" cols="55" name="para" placeholder="Enter Text"></textarea>
+                    <textarea rows="12" cols="55" name="para"></textarea>
+                </div>
+                <p class="btntranslate">Translate</p>
+            </form>
+            
+            <p class="label">Translate PDF</p>
+            <form class="service-container content-2" id="content-2">
+                <div class="dropdown">
+                    <div class="input">
+                        <label for="inputlang" class="in">Input language : </label>
+                        <select name="inputlang" id="inputlang">
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="output">
+                        <label for="outputlang" class="out">Output language : </label>
+                        <select name="outputlang" id="outputlang">
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="format">
+                        <label class="formattype" class="for">Format : </label>
+                        <select name="formattype" id="format">
+                            <option value="">Text</option>
+                            <option value="">Audio</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="upload">
+                    <p>Browse PDF File</p>
+                    <input type="file" id="myFile" class="myfile">
+                    <!-- <img src="/img/upload.svg" alt="" class="imgupload"> -->
+                    
+                </div>
+                <p class="btndownload">Download</p> 
+
+                <!-- <div class="rb">
+                    <p>Recommended Books</p>
+                    <textarea rows="5" cols="103" name="para"></textarea>
+                </div> -->
+            </form>
+        </div>
+
+        <!-- Total languages -->
+        <div class="languages">
+            <img src="{% static './img/languages.svg' %}" alt="languages">
+            <p><span>Supported Languages</span><br><br>Chinese, Spanish, English, Hindi, Arabic, Bengali, Portuguese, Russian, Japanese, Indonesian</p>
+        </div>
+
+        <footer>
+            <div>Capstone Project(2020-2021) VI Semester</div>
+            <div>Ganpat University - UVPCE, CE</div>
+            <div>Made by : Jasprit Kaur(18012011094) & Teerth Patel(18012011007)</div>
+        </footer>
+
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyB75NXU6c9z53Ilt5FZFM3WF3RTjw8MGE0",
+        authDomain: "biblior-30f03.firebaseapp.com",
+        projectId: "biblior-30f03",
+        storageBucket: "biblior-30f03.appspot.com",
+        messagingSenderId: "883618395634",
+        appId: "1:883618395634:web:f851d8d3b9cd04af55676b",
+        measurementId: "G-BNMLKB1RD0"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const auth = firebase.auth();
+    </script>
+    <script src="{% static 'app.js' %}"></script>
+    <script src="{% static 'auth.js'%}"></script>
+</body>
+</html>

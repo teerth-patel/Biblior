@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblior</title>
+    <script src="https://kit.fontawesome.com/75e13868b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'textstyle.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- Navigation section -->
+        <div class="nav-container">
+            <header>
+                <h2>Biblior</h2>
+                <nav>
+                    <ul class="nav-items">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Languages</a></li>
+                        <!-- <li><a href="#">About</a></li> -->
+                    </ul>
+                </nav>
+                <div>
+                    <button class="login" id="btnLogin">Login</button>
+                    <button class="signup" id="btnSignup">Sign up</button>
+                </div>
+            </header>
+        </div>
+
+        <!-- Login -->
+        <div class="login-container" id="login-container">
+            <form class="loginform">
+                <!-- <button class="close">&times;</button> -->
+                <h2 class="title">Log in</h2>
+                <input type="email" placeholder="Email" id="lemail" required/>
+                <input type="password" placeholder="Password" id="lpassword" required/> 
+                <p class="fp">Forgot your password?</p>
+                <div class="btns">
+                    <button class="LogIn" onclick="login()">Log in</button>
+                    <button class="close" id="closeLogin">Close</button>
+                </div>   
+            </form>
+        </div>
+
+        <!-- Signup -->
+        <div class="signup-container" id="signup-container">
+            <form class="signupform">
+                <!-- <button class="close">&times;</button> -->
+                <h2 class="title">Create Account</h2>
+                <input type="text" placeholder="Name" required/>
+                <input type="email" placeholder="Email" id="semail" required/>
+                <input type="password" placeholder="Password" id="spassword" required/> 
+                <div class="btn">
+                    <button class="SignUp" onclick="signup()">Sign up</button>   
+                    <button class="close" id="closeSignup">Close</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Home section -->
+        <div class="home">
+            <div>
+                <p>Translate words, phrases, sentences, documents or even books freely over top 10 spoken languages in the world. Search for already translated books here.
+                </p>
+                <input type="text" class="search" placeholder="Search Books">
+            </div>
+            <img src="./img/hero.svg" alt="hero">
+        </div>
+
+        <!-- Service section -->
+        <div class="services">
+            <!-- <div class="toogle"> -->
+                <p class="label" >Translate Paragraph</p>
+                <!-- <button class="btnpdf btn" >Translate PDF</button> -->
+            <!-- </div> -->
+            <form class="service-container content-1" id="content-1">
+                <div class="dropdown">
+                    <div class="input">
+                        <label for="inputlang" class="in">Input language : </label>
+                        <select name="inputlang" >
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="output">
+                        <label for="outputlang" class="out">Output language : </label>
+                        <select name="outputlang" >
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <textarea rows="12" cols="64" name="para" placeholder="Enter Text"></textarea>
+                    <textarea rows="12" cols="64" name="para"></textarea>
+                </div>
+                <p class="btntranslate">Translate</p>
+            </form>
+            
+            <p class="label">Translate PDF</p>
+            <form class="service-container content-2" id="content-2">
+                <div class="dropdown">
+                    <div class="input">
+                        <label for="inputlang" class="in">Input language : </label>
+                        <select name="inputlang" >
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="output">
+                        <label for="outputlang" class="out">Output language : </label>
+                        <select name="outputlang" >
+                            <option value="">Chinese</option>
+                            <option value="">Spanish</option>
+                            <option value="">English</option>
+                            <option value="">Hindi</option>
+                            <option value="">Arabic</option>
+                            <option value="">Bangali</option>
+                            <option value="">Portuguese</option>
+                            <option value="">Russian</option>
+                            <option value="">Japanese</option>
+                            <option value="">Indonesian</option>
+                        </select>
+                    </div>
+                    <div class="format">
+                        <label class="formattype" class="for">Format : </label>
+                        <select name="formattype" >
+                            <option value="">Text</option>
+                            <option value="">Audio</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="upload">
+                    <p>Browse PDF File</p>
+                    <input type="file" id="myFile" class="myfile">
+                    <!-- <img src="/img/upload.svg" alt="" class="imgupload"> -->
+                    
+                </div>
+                <p class="btndownload">Download</p> 
+
+                <!-- <div class="rb">
+                    <p>Recommended Books</p>
+                    <textarea rows="5" cols="103" name="para"></textarea>
+                </div> -->
+            </form>
+        </div>
+
+        <!-- Total languages -->
+        <div class="languages">
+            <img src="./img/languages.svg" alt="languages">
+            <p><span>Supported Languages</span><br><br>Chinese, Spanish, English, Hindi, Arabic, Bengali, Portuguese, Russian, Japanese, Indonesian</p>
+        </div>
+
+        <footer>
+            <div>Capstone Project(2020-2021) VI Semester</div>
+            <div>Ganpat University - UVPCE, CE</div>
+            <div>Submitted by : Jasprit Kaur(18012011094) & Teerth Patel(18012011007)</div>
+        </footer>
+    </div>
+    <script src="testmain.js"></script>
+
+    <!-- Authentication -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyB75NXU6c9z53Ilt5FZFM3WF3RTjw8MGE0",
+          authDomain: "biblior-30f03.firebaseapp.com",
+          projectId: "biblior-30f03",
+          storageBucket: "biblior-30f03.appspot.com",
+          messagingSenderId: "883618395634",
+          appId: "1:883618395634:web:f851d8d3b9cd04af55676b",
+          measurementId: "G-BNMLKB1RD0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      </script>
+
+</body>
+</html>
